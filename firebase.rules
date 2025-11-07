@@ -1,0 +1,44 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --- Staff Collection ---
+    match /staff/{userId} {
+      // Only the user who owns the document or an admin can read/update it
+      allow read, update, delete: if request.auth != null && (
+        request.auth.uid == userId ||
+        request.auth.token.role == 'admin'
+      );
+
+      // Only authenticated users can create their own staff record
+      allow create: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // --- Reports Collection ---
+    match /reports/{reportId} {
+      // Authenticated users can read and create reports
+      allow read, create: if request.auth != null;
+
+      // Only the report owner or admin can edit/delete
+      allow update, delete: if request.auth != null && (
+        request.auth.token.role == 'admin' ||
+        resource.data.createdBy == request.auth.uid
+      );
+    }
+
+    // --- Departments Collection ---
+    match /departments/{deptId} {
+      // Anyone authenticated can read
+      allow read: if request.auth != null;
+
+      // Only admin can write or modify departments
+      allow write: if request.auth != null && request.auth.token.role == 'admin';
+    }
+
+    // --- Default rule: deny all other access ---
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
