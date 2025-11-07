@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Staff Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav><a href="index.html">Logout</a></nav>
+  <main class="container">
+    <h1>Welcome, <span id="staffName">--</span></h1>
+
+    <section>
+      <h2>Your Tasks</h2>
+      <ul id="myTasks"></ul>
+    </section>
+
+    <section>
+      <h2>Submit Report</h2>
+      <form id="reportForm">
+        <input id="reportTitle" placeholder="Title" required>
+        <textarea id="reportBody" placeholder="Report details"></textarea>
+        <input type="file" id="reportFile">
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+  <script type="module" src="firebase-config.js"></script>
+ <script type="module" src="app.js"></script>
+</body>
+</html>

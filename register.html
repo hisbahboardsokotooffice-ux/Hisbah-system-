@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Register — Hisbah</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Register New Staff</h1>
+    <form id="register-form">
+      <label>Full Name</label>
+      <input id="fullName" required>
+
+      <label>Email</label>
+      <input type="email" id="regEmail" required>
+
+      <label>Password</label>
+      <input type="password" id="regPassword" required>
+
+      <label>Department</label>
+      <input id="department" required>
+
+      <label>Role</label>
+      <select id="role">
+        <option value="staff">Staff</option>
+        <option value="supervisor">Supervisor</option>
+        <option value="admin">Admin</option>
+      </select>
+
+      <button type="submit">Create Account</button>
+    </form>
+    <p><a href="index.html">Back to Login</a></p>
+  </main>
+
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+  <script type="module" src="firebase-config.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

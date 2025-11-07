@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav><a href="index.html">Logout</a></nav>
+  <main class="container">
+    <h1>Admin Dashboard</h1>
+    <section id="stats">
+      <div id="userCount">Users: --</div>
+    </section>
+
+    <section>
+      <h2>Staff List</h2>
+      <ul id="staffList"></ul>
+    </section>
+
+    <section>
+      <h2>Create Task</h2>
+      <form id="taskForm">
+        <input id="taskTitle" placeholder="Task title" required>
+        <textarea id="taskDesc" placeholder="Task description"></textarea>
+        <select id="assignTo"></select>
+        <button type="submit">Create Task</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+  <script type="module" src="firebase-config.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
